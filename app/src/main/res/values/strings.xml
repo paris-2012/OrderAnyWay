@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">FoodDeliveryApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="offers">Offers for you</string>
+    <string name="categories">Categories</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="address">Address</string>
+    <string name="price_text">$1</string>
+    <string name="name_food">Meal Name</string>
+    <string name="default_quantity">5</string>
+    <string name="shopping_cart">Shopping Cart</string>
+    <string name="select_address">SELECT ADDRESS</string>
+    <string name="add_address">ADD ADDRESS</string>
+    <string name="title">Title</string>
+    <string name="select">SELECT</string>
+    <string name="addresses">Addresses</string>
+    <string name="add_promo_code">Add Promo Code</string>
+    <string name="add">add</string>
+    <string name="credit">Credit Card</string>
+    <string name="debit">Debit Card</string>
+    <string name="btc">BTC</string>
+    <string name="cash">Cash</string>
+    <string name="apple_pay">Apple Pay</string>
+    <string name="google_pay">Google Pay</string>
+    <string name="payment_title">Choose Payment Method</string>
+    <string name="select_payment">SELECT PAYMENT</string>
+    <string name="confirm">Confirm order</string>
+    <string name="return_home">RETURN TO HOME</string>
+    <string name="my_orders">My Orders</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="rate_us">Rate Us</string>
+    <string name="thanks_for_review">Thank you for your feedback!</string>
+    <string name="contact_us_text">For more information contact roadtolowpriority@gmail.com for inquiries.</string>
+    <string name="cancel">Cancel</string>
+    <string name="my_profile">My Profile</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string-array name="country_codes">
+        <item>+1</item>
+        <item>+86</item>
+        <item>+91</item>
+        <item>+44</item>
+        <item>+1</item>
+        <item>+61</item>
+    </string-array>
+</resources>
