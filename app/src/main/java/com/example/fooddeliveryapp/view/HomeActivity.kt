@@ -38,6 +38,10 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, ContactUsActivity::class.java)
             startActivity(intent)
         }
+        binding.btnTracking.setOnClickListener {
+            val intent = Intent(this, TrackingActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnProfile.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)

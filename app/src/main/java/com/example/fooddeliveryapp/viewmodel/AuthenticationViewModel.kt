@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import com.example.fooddeliveryapp.view.HomeActivity
 import com.example.fooddeliveryapp.view.RegistrationActivity
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
@@ -85,18 +86,8 @@ class AuthenticationViewModel(private val activity: Activity) {
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
-    fun addPhoneAccount(phoneNumber: String, otp: String) {
-        auth = Firebase.auth
-        auth.signInWithCredential(PhoneAuthProvider.getCredential(phoneNumber, otp))
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    makeToast(activity.applicationContext, "Login Success")
-                    val intent = Intent(activity.applicationContext, HomeActivity::class.java)
-                    startActivity(activity.applicationContext, intent, null)
-                } else {
-                    makeToast(activity.applicationContext, "Login Failed")
-                }
-            }
+    fun addGoogleAccount() {
+
     }
 
     private fun makeToast(context: Context, s: String) {

@@ -7,6 +7,16 @@
     android:background="@color/bright_orange"
     tools:context=".view.HomeActivity">
     <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnTracking"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_baseline_map_24"
+        android:scaleType="centerCrop"
+        android:background="#00000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnChat"/>
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnProfile"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -43,7 +53,8 @@
         android:text="@string/contact_us"
         android:textColor="@color/white"
         android:textSize="@dimen/_20sp"
-        android:layout_marginRight="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_20dp"
+        android:layout_marginEnd="@dimen/_0dp"
         app:layout_constraintEnd_toStartOf="@+id/btnCart"
         app:layout_constraintTop_toTopOf="@+id/btnCart"
         app:layout_constraintBottom_toBottomOf="@+id/btnCart"/>
@@ -53,7 +64,9 @@
         android:layout_height="50dp"
         android:background="@drawable/allrounded_edittext"
         android:layout_margin="10dp"
-        android:hint="    find foods"
+        android:hint="@string/find_foods"
+        android:paddingStart="@dimen/_15dp"
+        android:paddingEnd="@dimen/_0dp"
         android:textColorHint="@color/blue"
         app:layout_constraintTop_toBottomOf="@+id/btnCart"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -62,7 +75,8 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_search_24"
         android:background="@color/clear"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="0dp"
         app:layout_constraintEnd_toEndOf="@+id/edtSearchName"
         app:layout_constraintTop_toTopOf="@+id/edtSearchName"
         app:layout_constraintBottom_toBottomOf="@+id/edtSearchName"/>
@@ -71,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/offers"
-        android:textSize="25dp"
+        android:textSize="@dimen/_25sp"
         android:textColor="@color/white"
         android:layout_margin="15dp"
         app:layout_constraintTop_toBottomOf="@id/edtSearchName"
@@ -90,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/categories"
-        android:textSize="25dp"
+        android:textSize="@dimen/_25sp"
         android:textColor="@color/white"
         android:layout_margin="20dp"
         app:layout_constraintStart_toStartOf="parent"

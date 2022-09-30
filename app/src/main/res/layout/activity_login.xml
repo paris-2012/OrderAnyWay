@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#005380"
+    android:background="@color/bright_orange"
     tools:context=".view.RegistrationActivity">
 
     <TextView
@@ -76,9 +76,13 @@
         android:id="@+id/testSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="skip"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:text="@string/sign_in_as_guest"
+        android:padding="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:background="@drawable/allrounded_edittext"
+        app:layout_constraintTop_toBottomOf="@+id/btnEmailLogin"
+        app:layout_constraintStart_toStartOf="@+id/btnEmailLogin"
+        app:layout_constraintEnd_toEndOf="@+id/btnEmailLogin"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
