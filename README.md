@@ -14,6 +14,9 @@ The app is a simple food delivery application in which you can create an account
 •Product View - Gets meal information through API request<br />
 •Shopping Cart - Adds meals to cart using a local database managed by RoomDb<br />
 •Checkout - A chain of ui's asks for checkout details and saves order information to a local database<br />
+•Profile - Stored profile information through shared preferences<br />
+•Order Tracking - Basic geographic tracking implemented using google maps<br />
+•Chat Support - A support chat using Firebase Realtime Database<br />
 
 ## Screenshots
 
