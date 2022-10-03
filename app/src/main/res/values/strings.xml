@@ -47,6 +47,7 @@
         <string name="application_name">OrderAnyWay</string>
         <string name="sign_in_with_google">Sign in with Google</string>
         <string name="my_favorites">My Favorites</string>
+        <string name="update">Update</string>
         <string-array name="country_codes">
             <item>+1</item>
             <item>+86</item>
