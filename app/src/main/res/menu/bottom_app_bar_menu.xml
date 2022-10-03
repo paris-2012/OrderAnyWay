@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/contact"
+        android:icon="@drawable/ic_baseline_contact_support_24_bright_orange"
+        android:title="contact"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/tracking"
+        android:icon="@drawable/ic_baseline_delivery_dining_24_bright_orange"
+        android:title="tracking"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/chat"
+        android:icon="@drawable/ic_baseline_chat_bubble_24_bright_orange"
+        android:title="chat"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_baseline_shopping_cart_24_bright_orange"
+        android:title="Cart"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/my_orders"
+        android:icon="@drawable/ic_baseline_list_alt_24_bright_orange"
+        android:title="Orders"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_person_24_bright_orange"
+        android:title="Profile"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_baseline_favorite_24_bright_orange"
+        android:title="Favorite"
+        app:showAsAction="always" />
+
+</menu>

@@ -38,6 +38,7 @@
         <activity android:name=".view.ProfileActivity"/>
         <activity android:name=".view.EditProfileActivity"/>
         <activity android:name=".view.TrackingActivity"/>
+        <activity android:name=".view.FavoriteActivity"/>
 
     </application>
 

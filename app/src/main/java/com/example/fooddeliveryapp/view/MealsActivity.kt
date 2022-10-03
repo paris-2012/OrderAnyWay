@@ -15,17 +15,19 @@ class MealsActivity : AppCompatActivity() {
         binding = ActivityMealsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpObserver()
-        initView()
     }
 
     private fun setUpObserver() {
         mealViewModel = ViewModelProvider(this)[MealsViewModel::class.java]
-        mealViewModel.getAllMeals(intent.getStringExtra("category")?:"")
-        mealViewModel.mealsLiveData.observe(this){
+        if ((intent.getStringExtra("name")?:"")!="") {
+            mealViewModel.getAllMealsByName(intent.getStringExtra("name") ?: "")
+        }
+        if ((intent.getStringExtra("category")?:"")!="") {
+            mealViewModel.getAllMealsByName(intent.getStringExtra("category") ?: "")
+        }
+        mealViewModel.mealsLiveData.observe(this) {
             binding.recyclerViewMeals.layoutManager = GridLayoutManager(this@MealsActivity, 2)
             binding.recyclerViewMeals.adapter = MealsAdapter(it.meals, this@MealsActivity)
         }
-    }
-    private fun initView() {
     }
 }

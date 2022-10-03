@@ -26,10 +26,8 @@ class CartActivity : AppCompatActivity() {
         database = AppDatabase.getInstance(applicationContext)
         cartDao = database.cartDao()
         binding.recyclerView.layoutManager = LinearLayoutManager(this@CartActivity)
-        val userId = intent.getStringExtra("user_id")
         binding.btnConfirm.setOnClickListener {
             val intent = Intent(this, AddressActivity::class.java)
-            intent.putExtra("user_id", userId)
             startActivity(intent)
         }
         val availablePromos = hashMapOf<String, Array<String>>()

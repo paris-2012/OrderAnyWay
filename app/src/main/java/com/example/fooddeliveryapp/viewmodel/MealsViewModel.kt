@@ -20,11 +20,29 @@ class MealsViewModel : ViewModel() {
     private lateinit var apiService: ApiService
     val mealsLiveData = MutableLiveData<MealResponse>()
     val mealLiveData = MutableLiveData<IndividualMealResponse>()
-    fun getAllMeals(strCategory: String){
+    fun getAllMealsByCategory(strCategory: String){
         retrofit = ApiClient.getRetrofit()
         apiService = retrofit.create(ApiService::class.java)
 
         val mealsInfo = apiService.searchByCategory(strCategory)
+        mealsInfo.enqueue(object : Callback<MealResponse> {
+            override fun onResponse(
+                call: Call<MealResponse>,
+                response: Response<MealResponse>
+            ) {
+                mealsLiveData.postValue(response.body())
+            }
+            override fun onFailure(call: Call<MealResponse>, t: Throwable) {
+                Log.e("tag", t.message.toString())
+            }
+        })
+    }
+
+    fun getAllMealsByName(strName: String){
+        retrofit = ApiClient.getRetrofit()
+        apiService = retrofit.create(ApiService::class.java)
+
+        val mealsInfo = apiService.searchByName(strName)
         mealsInfo.enqueue(object : Callback<MealResponse> {
             override fun onResponse(
                 call: Call<MealResponse>,

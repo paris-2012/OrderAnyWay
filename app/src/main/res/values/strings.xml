@@ -42,7 +42,12 @@
             <string name="location">Location</string>
             <string name="fav_color">Favorite Color</string>
             <string name="find_foods">find foods</string>
-            <string-array name="country_codes">
+        <string name="register">register</string>
+        <string name="login">login</string>
+        <string name="application_name">OrderAnyWay</string>
+        <string name="sign_in_with_google">Sign in with Google</string>
+        <string name="my_favorites">My Favorites</string>
+        <string-array name="country_codes">
             <item>+1</item>
             <item>+86</item>
             <item>+91</item>

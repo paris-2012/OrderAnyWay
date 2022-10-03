@@ -106,4 +106,161 @@
             app:layout_constraintStart_toEndOf="@id/txtNotRegistered"
             android:textColor="#FCA503"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/emailBlock"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/txtTitleEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EMAIL"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtEmailEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:textSize="30dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteX="55dp"
+            android:background="@drawable/rounded_edittext"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtPasswordEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="textWebPassword"
+            android:hint="password"
+            android:textSize="30dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/edtEmailEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteX="55dp"
+            android:background="@drawable/rounded_edittext"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSubmitEmail"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_arrow_circle_right_24"
+            app:layout_constraintTop_toBottomOf="@id/edtEmailEmail"
+            app:layout_constraintBottom_toTopOf="@+id/edtPasswordEmail"
+            app:layout_constraintStart_toEndOf="@+id/edtEmailEmail"
+            android:background="#00000000"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/phoneBlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txtTitlePhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHONE"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/countrySpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/rounded_edittext"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtPhonePhone"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="phone number"
+            android:textSize="30dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitlePhone"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteX="55dp"
+            android:background="@drawable/rounded_edittext"/>
+
+        <TextView
+            android:id="@+id/btnSendOTPPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="30dp"
+            android:text="send OTP  "
+            app:layout_constraintTop_toBottomOf="@+id/edtPhonePhone"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteX="55dp"
+            android:background="@drawable/send_otp_button"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtPasswordPhone"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="one time password"
+            android:textSize="30dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnSendOTPPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteX="55dp"
+            android:background="@drawable/rounded_edittext"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btnSubmitPhone"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_arrow_circle_right_24"
+            app:layout_constraintTop_toBottomOf="@id/edtPhonePhone"
+            app:layout_constraintBottom_toTopOf="@+id/edtPasswordPhone"
+            app:layout_constraintStart_toEndOf="@+id/edtPhonePhone"
+            android:background="#00000000"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/googleBlock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300dp"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignInWithGoogle"
+            android:layout_width="@dimen/_250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/allrounded_edittext"
+            android:text="@string/sign_in_with_google"
+            android:layout_gravity="bottom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

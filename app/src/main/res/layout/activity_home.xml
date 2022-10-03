@@ -6,71 +6,21 @@
     android:layout_height="match_parent"
     android:background="@color/bright_orange"
     tools:context=".view.HomeActivity">
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnTracking"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:src="@drawable/ic_baseline_map_24"
-        android:scaleType="centerCrop"
-        android:background="#00000000"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnChat"/>
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnProfile"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:src="@drawable/ic_baseline_person_100"
-        android:scaleType="centerCrop"
-        android:background="#00000000"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnChat"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:src="@drawable/ic_baseline_chat_bubble_100"
-        android:scaleType="centerCrop"
-        android:background="#00000000"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnProfile"/>
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnCart"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:src="@drawable/ic_baseline_shopping_cart_24"
-        android:scaleType="centerCrop"
-        android:background="#00000000"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/btnContactUs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contact_us"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_20sp"
-        android:layout_marginStart="@dimen/_20dp"
-        android:layout_marginEnd="@dimen/_0dp"
-        app:layout_constraintEnd_toStartOf="@+id/btnCart"
-        app:layout_constraintTop_toTopOf="@+id/btnCart"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCart"/>
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edtSearchName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/allrounded_edittext"
-        android:layout_margin="10dp"
+        android:layout_marginTop="@dimen/_50dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:textSize="@dimen/_25sp"
         android:hint="@string/find_foods"
         android:paddingStart="@dimen/_15dp"
         android:paddingEnd="@dimen/_0dp"
-        android:textColorHint="@color/blue"
-        app:layout_constraintTop_toBottomOf="@+id/btnCart"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
     <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_search_24"
@@ -85,7 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/offers"
-        android:textSize="@dimen/_25sp"
+        android:textSize="@dimen/_35sp"
+        android:textStyle="bold"
         android:textColor="@color/white"
         android:layout_margin="15dp"
         app:layout_constraintTop_toBottomOf="@id/edtSearchName"
@@ -104,8 +55,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/categories"
-        android:textSize="@dimen/_25sp"
         android:textColor="@color/white"
+        android:textSize="@dimen/_35sp"
+        android:textStyle="bold"
         android:layout_margin="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerViewOffers"/>
@@ -118,4 +70,25 @@
         android:layout_marginBottom="20dp"
         app:layout_constraintTop_toBottomOf="@id/txtCategories"/>
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:backgroundTint="@color/white"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            app:fabCradleMargin="0dp"
+            app:fabCradleRoundedCornerRadius="0dp"
+            app:menu="@menu/bottom_app_bar_menu"
+            app:titleTextColor="@color/white" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,14 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.databinding.ActivityRegisterBinding
-import com.example.fooddeliveryapp.viewmodel.AuthenticationViewModel
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -27,21 +23,27 @@ class RegistrationActivity : AppCompatActivity() {
         binding.btnEmailRegistration.setOnClickListener {
             binding.phoneBlock.visibility = View.GONE
             binding.emailBlock.visibility = View.VISIBLE
+            binding.googleBlock.visibility = View.GONE
         }
         binding.btnPhoneRegistration.setOnClickListener {
             binding.phoneBlock.visibility = View.VISIBLE
             binding.emailBlock.visibility = View.GONE
+            binding.googleBlock.visibility = View.GONE
+        }
+        binding.btnGoogleRegistration.setOnClickListener {
+            binding.googleBlock.visibility = View.VISIBLE
+            binding.emailBlock.visibility = View.GONE
+            binding.phoneBlock.visibility = View.GONE
         }
 
-        val viewModel = com.example.fooddeliveryapp.viewmodel.AuthenticationViewModel(this)
         binding.btnSubmitEmail.setOnClickListener {
-            viewModel.addEmailAccount(binding.edtEmailEmail.text.toString(), binding.edtPasswordEmail.text.toString(), this@RegistrationActivity)
+            addEmailAccount(binding.edtEmailEmail.text.toString(), binding.edtPasswordEmail.text.toString(), this@RegistrationActivity)
         }
 
         binding.btnSendOTPPhone.setOnClickListener {
             val phoneNum = "+1" + binding.edtPhonePhone.text.toString()
             Log.i("phone", phoneNum)
-            viewModel.sendOTP(phoneNum)
+            //viewModel.sendOTP(phoneNum)
         }
         binding.btnSubmitPhone.setOnClickListener {
             val phoneNum = "+1" + binding.edtPhonePhone.text.toString()
@@ -68,6 +70,26 @@ class RegistrationActivity : AppCompatActivity() {
                 }
             }
     }
+    fun addEmailAccount(email: String, password: String, context: Context) {
+        val auth = Firebase.auth
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    if (auth.currentUser != null) {
+                    }
+                    auth.currentUser.let {
+                        auth.currentUser?.sendEmailVerification()
+                    }
+                    makeToast(context, "Account created successfully")
+                } else {
+                    Log.i("tag", "error did not create successfully!")
+                    makeToast(context, "Account not created successfully")
+                }
+            }
+    }
+
+
 
     private fun makeToast(context: Context, s: String) {
         Toast.makeText(context, s, Toast.LENGTH_LONG).show()

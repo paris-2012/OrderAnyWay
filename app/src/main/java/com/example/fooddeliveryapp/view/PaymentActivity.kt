@@ -27,21 +27,18 @@ class PaymentActivity: AppCompatActivity() {
         paymentViewModel = CheckoutViewModel(application)
         database = AppDatabase.getInstance(this)
         orderDao = database.orderDao()
-        val userId = intent.getStringExtra(USER_ID)
         val address = intent.getStringExtra(ADDRESS)
         binding.btnConfirm.setOnClickListener {
             val paymentId = binding.radioPayment.checkedRadioButtonId
             val radioButton = findViewById<RadioButton>(paymentId)
             val paymentMethod = radioButton.text.toString()
-            //change to observe
-            val order = OrderItem(0, paymentViewModel.getPriceOfCart().toString(), address?:"", paymentMethod)
-            orderDao.insertOrderItem(order)
-            intent.putExtra(USER_ID, userId)
+            paymentViewModel.getPriceOfCart()
+            paymentViewModel.finalTotal.observe(this){
+                val order = OrderItem(0, it.toString(), address?:"", paymentMethod)
+                orderDao.insertOrderItem(order)
+            }
             val intent = Intent(this, OrdersActivity::class.java)
             ContextCompat.startActivity(this, intent, null)
         }
-    }
-    companion object {
-        const val USER_ID = "user_id"
     }
 }

@@ -4,22 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bright_orange"
     tools:context=".view.MainActivity">
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegisterActivity"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
-        android:text="register"
+        android:text="@string/register"
+        android:textStyle="bold"
+        android:textColor="@color/bright_orange"
+        android:textSize="@dimen/_30sp"
+        android:padding="@dimen/_10dp"
+        android:layout_margin="@dimen/_20dp"
+        android:background="@drawable/allrounded_edittext"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintBottom_toBottomOf ="parent"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnLoginActivity"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:textStyle="bold"
+        android:textColor="@color/bright_orange"
+        android:textSize="@dimen/_30sp"
+        android:padding="@dimen/_10dp"
+        android:layout_margin="@dimen/_20dp"
+        android:background="@drawable/allrounded_edittext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgLogoBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="login"
+        android:src="@drawable/circle_logo"
+        android:layout_marginTop="@dimen/_100dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/_250dp"
+        android:layout_height="@dimen/_250dp"
+        android:src="@drawable/clipart1059731"
+        app:layout_constraintStart_toStartOf="@id/imgLogoBackground"
+        app:layout_constraintEnd_toEndOf="@id/imgLogoBackground"
+        app:layout_constraintTop_toTopOf="@id/imgLogoBackground"
+        app:layout_constraintBottom_toBottomOf="@id/imgLogoBackground"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/application_name"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/_50sp"
+        app:layout_constraintTop_toBottomOf="@id/imgLogoBackground"
+        app:layout_constraintStart_toStartOf="@id/imgLogoBackground"
+        app:layout_constraintEnd_toEndOf="@id/imgLogoBackground"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

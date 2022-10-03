@@ -29,5 +29,8 @@
     <dimen name="_250dp">250dp</dimen>
     <dimen name="_40dp">40dp</dimen>
     <dimen name="_0dp">0dp</dimen>
+    <dimen name="_35sp">35sp</dimen>
+    <dimen name="_50sp">50sp</dimen>
+    <dimen name="_700dp">700dp</dimen>
 
 </resources>

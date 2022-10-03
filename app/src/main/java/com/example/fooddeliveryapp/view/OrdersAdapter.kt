@@ -34,7 +34,7 @@ class OrdersAdapter(private val orders: List<OrderItem>) :
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("Range")
         fun bind(order: OrderItem) {
-            binding.txtTitle.text = "Order Id: ${order.id.toString()}"
+            binding.txtTitle.text = "Order Id: ${order.id}"
             binding.txtAddress.text = order.address
             binding.txtPayment.text = order.payment
             binding.txtPrice.text = "$ ${order.total}"

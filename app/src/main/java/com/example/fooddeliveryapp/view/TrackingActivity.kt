@@ -1,6 +1,9 @@
 package com.example.fooddeliveryapp.view
 
-import android.graphics.Color
+import android.annotation.SuppressLint
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fooddeliveryapp.R
@@ -10,6 +13,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+
 
 class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
@@ -24,42 +28,46 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val chapelHill = LatLng(35.9132, -79.0558)
-        mMap.addMarker(MarkerOptions().position(chapelHill).title("marker in Chapel Hill"))
-        val durham = LatLng(35.9940, -78.8986)
-        mMap.addMarker(MarkerOptions().position(durham).title("marker in Durham"))
-        val raleigh = LatLng(35.7796, -78.6382)
-        mMap.addMarker(MarkerOptions().position(raleigh).title("marker in Raleigh"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(chapelHill, 9f))
+        val deliveryIcon =
+            getMarkerIconFromDrawable(resources.getDrawable(R.drawable.ic_baseline_directions_car_50_bright_orange))
+        val homeIcon =
+            getMarkerIconFromDrawable(resources.getDrawable(R.drawable.ic_baseline_home_50_bright_orange))
+        val storeIcon =
+            getMarkerIconFromDrawable(resources.getDrawable(R.drawable.ic_baseline_storefront_50_bright_orange))
+        val homeLocation = LatLng(35.141060, -79.003170)
+        val deliveryLocation = LatLng(35.141060 + .001, -79.003170 + .001)
+        val storeLocation = LatLng(35.141060 + .002, -79.003170 + .002)
+        mMap.addMarker(
+            MarkerOptions()
+                .position(deliveryLocation)
+                .icon(deliveryIcon)
+        )
+        mMap.addMarker(
+            MarkerOptions()
+                .position(homeLocation)
+                .icon(homeIcon)
+        )
+        mMap.addMarker(
+            MarkerOptions()
+                .position(storeLocation)
+                .icon(storeIcon)
+        )
 
-        mMap.addPolygon(
-            PolygonOptions().add(chapelHill, durham, raleigh)
-                .strokeWidth(3f)
-                .fillColor(Color.TRANSPARENT)
-                .geodesic(true)
-                .strokeColor(Color.RED)
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(deliveryLocation, 16f))
+    }
+    private fun getMarkerIconFromDrawable(drawable: Drawable): BitmapDescriptor? {
+        val canvas = Canvas()
+        val bitmap = Bitmap.createBitmap(
+            drawable.intrinsicWidth,
+            drawable.intrinsicHeight,
+            Bitmap.Config.ARGB_8888
         )
-        mMap.addCircle(
-            CircleOptions().radius(3000.00)
-                .center(raleigh).fillColor(Color.RED)
-                .strokeWidth(0f)
-        )
-        mMap.addCircle(
-            CircleOptions().radius(3000.00)
-                .center(durham).fillColor(Color.BLUE)
-                .strokeWidth(0f)
-        )
-        mMap.addCircle(
-            CircleOptions().radius(3000.00)
-                .center(chapelHill).fillColor(Color.rgb(141, 200, 240))
-                .strokeWidth(0f)
-        )
-        mMap.addPolyline(
-            PolylineOptions().add(chapelHill).add(LatLng(35.9132+.1, -79.0558+.1)).add(LatLng(35.9132+.1, -79.0558-.1)).add(
-                LatLng(35.9132-.1, -79.0558-.1)
-            )
-        )
+        canvas.setBitmap(bitmap)
+        drawable.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
+        drawable.draw(canvas)
+        return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
 }

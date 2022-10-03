@@ -98,7 +98,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:context=".view.EmailRegistrationFragment"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -156,7 +155,6 @@
         android:id="@+id/phoneBlock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:context=".view.EmailRegistrationFragment"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="gone">
@@ -229,4 +227,23 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/googleBlock"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300dp"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignInWithGoogle"
+            android:layout_width="@dimen/_250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/allrounded_edittext"
+            android:text="@string/sign_in_with_google"
+            android:layout_gravity="bottom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
