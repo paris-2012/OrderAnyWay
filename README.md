@@ -30,7 +30,8 @@ The app is a simple food delivery application in which you can create an account
 <img src="https://user-images.githubusercontent.com/68170232/193485473-f9c835d0-9d3c-4606-b346-c6e68cb27645.png" width="190"/>
 <img src="https://user-images.githubusercontent.com/68170232/193484294-f0cf95ce-26d5-4d0a-be4f-c3f96123471b.png" width="190"/>
 <img src="https://user-images.githubusercontent.com/68170232/193484308-940c53b5-24b6-47ce-8add-f0d7d6b0d4f3.png" width="190"/>
-<img src="https://user-images.githubusercontent.com/68170232/193484475-029fa6d3-ff7c-45d1-a56f-6d91f48b17c1.png" width="190"/>
+<img src="https://user-images.githubusercontent.com/68170232/193604314-3ad13b34-83ff-42ad-a292-0fdbf764143f.png" width="190"/>
+
 
 ## Built with
 
