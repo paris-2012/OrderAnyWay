@@ -57,6 +57,7 @@ com.example.FoodDeliveryApp          # Root Package<br />
 ## Architecture
 
 This app uses MVVM Architecture
+
 ![image](https://user-images.githubusercontent.com/68170232/193273392-c639744e-86e2-48c4-8633-2a616e90bcf5.png)
 
 ## Thanks!
