@@ -32,6 +32,7 @@
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_payment.xml" value="0.25" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_profile.xml" value="0.2" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_support_chat.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_trackcing.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_tracking.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/address_list_item.xml" value="0.1816123188405797" />
@@ -49,7 +50,10 @@
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/orders_item.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/otp_layout.xml" value="0.25" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/otp_screen_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/receiver_view.xml" value="0.20199275362318841" />
+        <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/sender_view.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/spinner_item.xml" value="0.234375" />
+        <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/support_chat_view.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/menu/bottom_app_bar_menu.xml" value="0.25" />
       </map>
     </option>

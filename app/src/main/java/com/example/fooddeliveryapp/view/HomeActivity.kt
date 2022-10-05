@@ -60,8 +60,8 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.chat -> {
-                    //val intent = Intent(this, ChatActivity::class.java)
-                    //startActivity(intent)
+                    val intent = Intent(this, SupportChatActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.contact -> {

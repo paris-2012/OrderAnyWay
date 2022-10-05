@@ -39,6 +39,7 @@
         <activity android:name=".view.EditProfileActivity"/>
         <activity android:name=".view.TrackingActivity"/>
         <activity android:name=".view.FavoriteActivity"/>
+        <activity android:name=".view.SupportChatActivity"/>
 
     </application>
 
