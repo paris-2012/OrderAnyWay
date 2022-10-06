@@ -51,6 +51,7 @@
         <string name="delete">delete</string>
             <string name="confirm_delete">confirm delete</string>
         <string name="enter_message">enter message</string>
+        <string name="scan_qr">Scan QR Code</string>
         <string-array name="country_codes">
             <item>+1</item>
             <item>+86</item>

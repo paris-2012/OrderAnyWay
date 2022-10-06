@@ -45,6 +45,13 @@
             android:layout_height="wrap_content"
             android:text="@string/google_pay"
             android:buttonTint="@color/bright_orange"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radioBtnScanQR"
+            android:layout_width="@dimen/_120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/scan_qr"
+            android:buttonTint="@color/bright_orange"/>
     </RadioGroup>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnConfirm"
@@ -56,4 +63,13 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgPaypal"
+        android:layout_width="@dimen/_150dp"
+        android:layout_height="@dimen/_150dp"
+        android:src="@drawable/img_paypal"
+        app:layout_constraintTop_toBottomOf="@+id/radioPayment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

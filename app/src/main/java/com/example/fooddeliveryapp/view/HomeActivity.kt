@@ -1,6 +1,7 @@
 package com.example.fooddeliveryapp.view
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -15,6 +16,8 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var offersAdapter: OffersAdapter
     private lateinit var offersData: MutableList<Array<String>>
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -66,6 +69,17 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.contact -> {
                     val intent = Intent(this, ContactUsActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.logout -> {
+                    sharedPreferences = getSharedPreferences("LOGIN_CREDENTIALS", MODE_PRIVATE)
+                    editor = sharedPreferences.edit()
+
+                    editor.putString("USERNAME", "")
+                    editor.putString("PASSWORD", "")
+                    editor.commit()
+                    val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     true
                 }

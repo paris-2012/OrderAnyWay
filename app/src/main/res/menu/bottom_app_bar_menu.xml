@@ -41,5 +41,10 @@
         android:icon="@drawable/ic_baseline_favorite_24_bright_orange"
         android:title="Favorite"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_baseline_logout_24"
+        android:title="Logout"
+        app:showAsAction="always" />
 
 </menu>

@@ -2,6 +2,7 @@ package com.example.fooddeliveryapp.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -28,6 +29,19 @@ class PaymentActivity: AppCompatActivity() {
         database = AppDatabase.getInstance(this)
         orderDao = database.orderDao()
         val address = intent.getStringExtra(ADDRESS)
+        binding.radioBtnScanQR.setOnClickListener {
+            binding.imgPaypal.visibility = View.VISIBLE
+        }
+        binding.radioBtnCash.setOnClickListener {
+            binding.imgPaypal.visibility = View.GONE
+        }
+        binding.radioBtnCredit.setOnClickListener {
+            binding.imgPaypal.visibility = View.GONE
+        }
+        binding.radioBtnGooglePay.setOnClickListener {
+            binding.imgPaypal.visibility = View.GONE
+        }
+
         binding.btnConfirm.setOnClickListener {
             val paymentId = binding.radioPayment.checkedRadioButtonId
             val radioButton = findViewById<RadioButton>(paymentId)
@@ -41,4 +55,5 @@ class PaymentActivity: AppCompatActivity() {
             ContextCompat.startActivity(this, intent, null)
         }
     }
+
 }
