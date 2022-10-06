@@ -1,11 +1,15 @@
 package com.example.fooddeliveryapp.view
 
+import android.app.PendingIntent
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
+import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.databinding.ActivityPaymentBinding
 import com.example.fooddeliveryapp.model.local.AppDatabase
 import com.example.fooddeliveryapp.model.local.OrderDao
@@ -51,8 +55,22 @@ class PaymentActivity: AppCompatActivity() {
                 val order = OrderItem(0, it.toString(), address?:"", paymentMethod)
                 orderDao.insertOrderItem(order)
             }
+            confirmationNotification()
             val intent = Intent(this, OrdersActivity::class.java)
             ContextCompat.startActivity(this, intent, null)
+        }
+    }
+    private fun confirmationNotification() {
+        val intent = Intent(this@PaymentActivity, MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(this@PaymentActivity, 0, intent, 0)
+        val builder = NotificationCompat.Builder(this@PaymentActivity)
+            .setSmallIcon(R.drawable.ic_baseline_fastfood_24)
+            .setContentTitle("Order Confirmation")
+            .setContentText("Your order has been confirmed the restaurant and they are preparing it now")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setContentIntent(pendingIntent)
+        with(NotificationManagerCompat.from(this@PaymentActivity)){
+            notify(0, builder.build())
         }
     }
 
