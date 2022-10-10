@@ -19,6 +19,7 @@
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/drawable/star.xml" value="0.238" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/abhishek_card.xml" value="0.25" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_address.xml" value="0.1" />
+        <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_after_notification.xml" value="0.264" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_cart.xml" value="0.1816123188405797" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_contact_us.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_edit_profile.xml" value="0.23333333333333334" />
@@ -30,12 +31,15 @@
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_meals.xml" value="0.175" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_orders.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_payment.xml" value="0.25" />
+        <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_pickup_notification.xml" value="0.18931159420289856" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_profile.xml" value="0.2" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_support_chat.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_trackcing.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/activity_tracking.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/address_list_item.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/after_notification.xml" value="0.25" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/cart_item_layout.xml" value="0.1816123188405797" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/categories_item.xml" value="0.24139492753623187" />
         <entry key="..\:/Users/okaye/AndroidStudioProjects/FoodDeliveryApp/app/src/main/res/layout/country_spinner.xml" value="0.234375" />

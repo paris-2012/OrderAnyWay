@@ -52,6 +52,9 @@
             <string name="confirm_delete">confirm delete</string>
         <string name="enter_message">enter message</string>
         <string name="scan_qr">Scan QR Code</string>
+        <string name="order_confirm_notification">Your order has been received by the restaurant and they are preparing your meal</string>
+        <string name="loading">loading...</string>
+        <string name="pickup_notification">Your order has been picked up by John and he is on the way.</string>
         <string-array name="country_codes">
             <item>+1</item>
             <item>+86</item>

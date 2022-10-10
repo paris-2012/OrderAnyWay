@@ -9,20 +9,27 @@ import com.example.fooddeliveryapp.model.remote.response.CategoryResponse
 import com.example.fooddeliveryapp.model.remote.response.IndividualMealResponse
 import com.example.fooddeliveryapp.model.remote.response.Meal
 import com.example.fooddeliveryapp.model.remote.response.MealResponse
+import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
     @GET(END_POINT_CATEGORIES)
-    fun getCategoryInfo(): Call<CategoryResponse>
+    fun getCategoryInfo(): Single<CategoryResponse>
 
     @GET(FILTER_BY_CATEGORY)
-    fun searchByCategory(@Query("c") strCategory: String): Call<MealResponse>
+    fun searchByCategory(@Query("c") strCategory: String): Single<MealResponse>
 
     @GET(MEAL_ID_ENDPOINT)
-    fun getMealDetails(@Query("i") strCategory: String): Call<MealResponse>
+    fun getMealDetails(@Query("i") strCategory: String): Single<MealResponse>
 
     @GET(MEAL_NAME_ENDPOINT)
-    fun searchByName(@Query("s") strName: String): Call<MealResponse>
+    fun searchByName(@Query("s") strName: String): Single<MealResponse>
+    //completable no result expected
+    //single result expected compulsory success or failure
+    //maybe either success or failure
+    //flowable heavy data incoming
+    //observable simplest form
 }

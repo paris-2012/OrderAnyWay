@@ -17,7 +17,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCN_-wK1h6gkNAXbykzL7XdJXRWSdymzeI"/>
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".view.MainActivity"/>
         <activity android:name=".view.RegistrationActivity"/>
         <activity android:name=".view.LoginActivity"/>
         <activity android:name=".view.HomeActivity"/>

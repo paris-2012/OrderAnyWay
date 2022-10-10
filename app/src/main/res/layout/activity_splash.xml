@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bright_orange"
+    tools:context=".view.MainActivity">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgLogoBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circle_logo"
+        android:layout_marginTop="@dimen/_100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="@dimen/_250dp"
+        android:layout_height="@dimen/_250dp"
+        android:src="@drawable/clipart1059731"
+        app:layout_constraintStart_toStartOf="@id/imgLogoBackground"
+        app:layout_constraintEnd_toEndOf="@id/imgLogoBackground"
+        app:layout_constraintTop_toTopOf="@id/imgLogoBackground"
+        app:layout_constraintBottom_toBottomOf="@id/imgLogoBackground"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgBike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_delivery_dining_100_white"
+        app:layout_constraintStart_toStartOf="@id/imgRoad"
+        app:layout_constraintEnd_toStartOf="@id/imgRoad"
+        app:layout_constraintBottom_toTopOf="@id/imgRoad"
+        />
+    <ImageView
+        android:id="@+id/imgRoad"
+        android:layout_width="@dimen/_300dp"
+        android:layout_height="@dimen/_30dp"
+        android:src="@drawable/allrounded_edittext"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/_60dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loading"
+        android:textSize="@dimen/_20sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/imgRoad"
+        app:layout_constraintStart_toStartOf="@id/imgRoad"
+        app:layout_constraintEnd_toEndOf="@id/imgRoad"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

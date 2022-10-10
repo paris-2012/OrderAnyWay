@@ -9,6 +9,8 @@ import com.example.fooddeliveryapp.model.remote.response.CategoryResponse
 import com.example.fooddeliveryapp.model.remote.response.IndividualMealResponse
 import com.example.fooddeliveryapp.model.remote.response.Meal
 import com.example.fooddeliveryapp.model.remote.response.MealResponse
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,58 +21,51 @@ class MealsViewModel : ViewModel() {
     private lateinit var retrofit: Retrofit
     private lateinit var apiService: ApiService
     val mealsLiveData = MutableLiveData<MealResponse>()
-    val mealLiveData = MutableLiveData<IndividualMealResponse>()
     fun getAllMealsByCategory(strCategory: String){
         retrofit = ApiClient.getRetrofit()
         apiService = retrofit.create(ApiService::class.java)
 
-        val mealsInfo = apiService.searchByCategory(strCategory)
-        mealsInfo.enqueue(object : Callback<MealResponse> {
-            override fun onResponse(
-                call: Call<MealResponse>,
-                response: Response<MealResponse>
-            ) {
-                mealsLiveData.postValue(response.body())
-            }
-            override fun onFailure(call: Call<MealResponse>, t: Throwable) {
-                Log.e("tag", t.message.toString())
-            }
-        })
+        val mealsInfo = apiService.searchByCategory(strCategory).subscribeOn(
+            Schedulers.io()
+        ).doOnSubscribe {
+
+        }.observeOn(
+            AndroidSchedulers.mainThread()
+        ).subscribe(
+            { response -> mealsLiveData.postValue(response)},
+            { t -> t.printStackTrace() }
+        )
     }
 
     fun getAllMealsByName(strName: String){
         retrofit = ApiClient.getRetrofit()
         apiService = retrofit.create(ApiService::class.java)
 
-        val mealsInfo = apiService.searchByName(strName)
-        mealsInfo.enqueue(object : Callback<MealResponse> {
-            override fun onResponse(
-                call: Call<MealResponse>,
-                response: Response<MealResponse>
-            ) {
-                mealsLiveData.postValue(response.body())
-            }
-            override fun onFailure(call: Call<MealResponse>, t: Throwable) {
-                Log.e("tag", t.message.toString())
-            }
-        })
+        val mealsInfo = apiService.searchByName(strName).subscribeOn(
+            Schedulers.io()
+        ).doOnSubscribe {
+
+        }.observeOn(
+            AndroidSchedulers.mainThread()
+        ).subscribe(
+            { response -> mealsLiveData.postValue(response)},
+            { t -> t.printStackTrace() }
+        )
     }
 
     fun getMealInfo(meal_id: String){
         retrofit = ApiClient.getRetrofit()
         apiService = retrofit.create(ApiService::class.java)
 
-        val mealsInfo = apiService.getMealDetails(meal_id)
-        mealsInfo.enqueue(object : Callback<MealResponse> {
-            override fun onResponse(
-                call: Call<MealResponse>,
-                response: Response<MealResponse>
-            ) {
-                mealsLiveData.postValue(response.body())
-            }
-            override fun onFailure(call: Call<MealResponse>, t: Throwable) {
-                Log.e("tag", t.message.toString())
-            }
-        })
+        val mealsInfo = apiService.getMealDetails(meal_id).subscribeOn(
+            Schedulers.io()
+        ).doOnSubscribe {
+
+        }.observeOn(
+            AndroidSchedulers.mainThread()
+        ).subscribe(
+            { response -> mealsLiveData.postValue(response)},
+            { t -> t.printStackTrace() }
+        )
     }
 }
