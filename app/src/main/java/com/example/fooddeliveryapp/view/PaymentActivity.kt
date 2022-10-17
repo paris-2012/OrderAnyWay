@@ -13,20 +13,23 @@ import android.widget.RadioButton
 import android.widget.RemoteViews
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.databinding.ActivityPaymentBinding
 import com.example.fooddeliveryapp.model.local.AppDatabase
-import com.example.fooddeliveryapp.model.local.OrderDao
-import com.example.fooddeliveryapp.model.local.OrderItem
+import com.example.fooddeliveryapp.model.local.entities.OrderItem
 import com.example.fooddeliveryapp.view.AddressAdapter.Companion.ADDRESS
 import com.example.fooddeliveryapp.viewmodel.CheckoutViewModel
+import com.example.fooddeliveryapp.viewmodel.OrderVMFactory
+import com.example.fooddeliveryapp.viewmodel.OrderViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class PaymentActivity: AppCompatActivity() {
     private lateinit var binding: ActivityPaymentBinding
     private lateinit var paymentViewModel: CheckoutViewModel
-    private lateinit var database: AppDatabase
-    private lateinit var orderDao: OrderDao
+    lateinit var orderViewModel: OrderViewModel
 
 
     lateinit var notificationManager: NotificationManager
@@ -38,27 +41,38 @@ class PaymentActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val alarmManager = getSystemService(ALARM_SERVICE)
 
         notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         initView()
     }
     private fun initView() {
+
+        val factory = OrderVMFactory(AppDatabase.getInstance(baseContext))
+        orderViewModel = ViewModelProvider(this, factory)[OrderViewModel::class.java]
         paymentViewModel = CheckoutViewModel(application)
-        database = AppDatabase.getInstance(this)
-        orderDao = database.orderDao()
+
         val address = intent.getStringExtra(ADDRESS)
+
+        val items = intent.getStringExtra("ITEMS")
         binding.radioBtnScanQR.setOnClickListener {
             binding.imgPaypal.visibility = View.VISIBLE
+            binding.creditCardGroup.visibility = View.GONE
+            binding.cashGroup.visibility = View.GONE
         }
         binding.radioBtnCash.setOnClickListener {
             binding.imgPaypal.visibility = View.GONE
+            binding.creditCardGroup.visibility = View.GONE
+            binding.cashGroup.visibility = View.GONE
         }
         binding.radioBtnCredit.setOnClickListener {
             binding.imgPaypal.visibility = View.GONE
+            binding.creditCardGroup.visibility = View.VISIBLE
+            binding.cashGroup.visibility = View.GONE
         }
         binding.radioBtnGooglePay.setOnClickListener {
             binding.imgPaypal.visibility = View.GONE
+            binding.creditCardGroup.visibility = View.GONE
+            binding.cashGroup.visibility = View.GONE
         }
 
         binding.btnConfirm.setOnClickListener {
@@ -67,8 +81,10 @@ class PaymentActivity: AppCompatActivity() {
             val paymentMethod = radioButton.text.toString()
             paymentViewModel.getPriceOfCart()
             paymentViewModel.finalTotal.observe(this){
-                val order = OrderItem(0, it.toString(), address?:"", paymentMethod)
-                orderDao.insertOrderItem(order)
+                val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
+                val currentDate = sdf.format(Date())
+                val order = OrderItem(0, it.toString(), address?:"", paymentMethod, currentDate, items?:"", "pending")
+                orderViewModel.addOrder(order)
             }
             confirmationNotification("Your order has been received by the restaurant and they are preparing your meal")
 

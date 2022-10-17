@@ -3,10 +3,7 @@ package com.example.fooddeliveryapp.view
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fooddeliveryapp.databinding.ActivityCartBinding
 import com.example.fooddeliveryapp.databinding.ActivityContactUsBinding
-import com.example.fooddeliveryapp.model.local.AppDatabase
-import com.example.fooddeliveryapp.model.local.CartDao
 
 class ContactUsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityContactUsBinding

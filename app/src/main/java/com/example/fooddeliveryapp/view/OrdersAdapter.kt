@@ -7,16 +7,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fooddeliveryapp.R
-import com.example.fooddeliveryapp.databinding.MealsItemBinding
 import com.example.fooddeliveryapp.databinding.OrdersItemBinding
-import com.example.fooddeliveryapp.model.local.OrderItem
-import com.example.fooddeliveryapp.model.remote.response.Meal
-import com.squareup.picasso.Picasso
+import com.example.fooddeliveryapp.model.local.entities.OrderItem
 
-class OrdersAdapter(private val orders: List<OrderItem>) :
+class OrdersAdapter(private val orders: List<OrderItem>, private val context: Context) :
     RecyclerView.Adapter<OrdersAdapter.ViewHolder>() {
     internal lateinit var binding: OrdersItemBinding
     override fun getItemCount() = orders.size
@@ -34,10 +30,27 @@ class OrdersAdapter(private val orders: List<OrderItem>) :
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         @SuppressLint("Range")
         fun bind(order: OrderItem) {
-            binding.txtTitle.text = "Order Id: ${order.id}"
-            binding.txtAddress.text = order.address
-            binding.txtPayment.text = order.payment
+            binding.btnTrack.setOnClickListener {
+                val intent = Intent(context, TrackingActivity::class.java)
+                startActivity(context, intent, null)
+            }
+            binding.btnReceipt.setOnClickListener {
+                val intent = Intent(context, OrderDetailsActivity::class.java)
+
+                intent.putExtra("orderId", order.id.toString())
+                startActivity(context, intent, null)
+            }
+            var itemsMod = order.items.replace("\n".toRegex(), ", ")
+            if (itemsMod.length > 40) {
+                itemsMod = itemsMod.slice(0..40)
+                itemsMod += "...  "
+            }
+            itemsMod = itemsMod.slice(0..itemsMod.length - 3)
+            binding.txtTitle.text = "Global Food Court"
+            binding.txtItems.text = itemsMod
+            binding.txtDate.text = order.time
             binding.txtPrice.text = "$ ${order.total}"
         }
     }
 }
+

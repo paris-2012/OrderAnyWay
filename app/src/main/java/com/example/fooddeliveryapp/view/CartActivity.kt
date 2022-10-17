@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fooddeliveryapp.databinding.ActivityCartBinding
 import com.example.fooddeliveryapp.model.local.AppDatabase
-import com.example.fooddeliveryapp.model.local.CartDao
-import com.example.fooddeliveryapp.model.local.CartItem
+import com.example.fooddeliveryapp.model.local.daos.CartDao
+import com.example.fooddeliveryapp.model.local.entities.CartItem
 
 
 class CartActivity : AppCompatActivity() {
@@ -15,7 +15,7 @@ class CartActivity : AppCompatActivity() {
     private lateinit var database: AppDatabase
     private lateinit var cartDao: CartDao
     private lateinit var cartAdapter: CartAdapter
-
+    private var cartString = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
@@ -26,10 +26,6 @@ class CartActivity : AppCompatActivity() {
         database = AppDatabase.getInstance(applicationContext)
         cartDao = database.cartDao()
         binding.recyclerView.layoutManager = LinearLayoutManager(this@CartActivity)
-        binding.btnConfirm.setOnClickListener {
-            val intent = Intent(this, AddressActivity::class.java)
-            startActivity(intent)
-        }
         val availablePromos = hashMapOf<String, Array<String>>()
         availablePromos.put("FREEFOOD", arrayOf("-5", "1"))
         availablePromos.put("FREELUNCH", arrayOf("-10", "2"))
@@ -41,10 +37,20 @@ class CartActivity : AppCompatActivity() {
             }
         }
         fetchCart()
+        binding.btnConfirm.setOnClickListener {
+            val intent = Intent(this, AddressActivity::class.java)
+            intent.putExtra("ITEMS", cartString)
+            startActivity(intent)
+        }
     }
 
         private fun fetchCart() {
-            cartAdapter = CartAdapter(ArrayList(cartDao.getAllCartItems()))
+            val cartList = cartDao.getAllCartItems()
+            for (food in cartList) {
+                cartString += food.title
+                cartString += "\n"
+            }
+            cartAdapter = CartAdapter(ArrayList(cartList))
             binding.recyclerView.adapter = cartAdapter
     }
 

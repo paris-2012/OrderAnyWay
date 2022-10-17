@@ -55,6 +55,16 @@
         <string name="order_confirm_notification">Your order has been received by the restaurant and they are preparing your meal</string>
         <string name="loading">loading...</string>
         <string name="pickup_notification">Your order has been picked up by John and he is on the way.</string>
+        <string name="card_number">Card Number</string>
+        <string name="cvv">CVV</string>
+            <string name="expiration_date">Expiration Date</string>
+        <string name="pay_with_cash_once_your_delivery_arrives">Pay with cash once your delivery arrives</string>
+            <string name="pay">Pay</string>
+        <string name="track_order">Track Order</string>
+        <string name="order_id">Order Id:</string>
+        <string name="order_items">Order Items:</string>
+        <string name="view_receipt">View Receipt</string>
+        <string name="reorder">Reorder</string>
         <string-array name="country_codes">
             <item>+1</item>
             <item>+86</item>

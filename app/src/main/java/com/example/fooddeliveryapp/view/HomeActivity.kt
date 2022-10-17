@@ -9,7 +9,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.databinding.ActivityHomeBinding
+import com.example.fooddeliveryapp.model.remote.ApiClient
+import com.example.fooddeliveryapp.model.remote.ApiService
+import com.example.fooddeliveryapp.viewmodel.HomeVMFactory
 import com.example.fooddeliveryapp.viewmodel.HomeViewModel
+import retrofit2.Retrofit
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -18,6 +22,8 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
+    private lateinit var retrofit: Retrofit
+    private lateinit var apiService: ApiService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -27,7 +33,10 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setUpObserver() {
-        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        retrofit = ApiClient.getRetrofit()
+        apiService = retrofit.create(ApiService::class.java)
+        val factory = HomeVMFactory(apiService)
+        homeViewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
         homeViewModel.getAllCategory()
         homeViewModel.categoryLiveData.observe(this){
             binding.recyclerViewCategories.layoutManager = LinearLayoutManager(this@HomeActivity, LinearLayoutManager.HORIZONTAL, false)

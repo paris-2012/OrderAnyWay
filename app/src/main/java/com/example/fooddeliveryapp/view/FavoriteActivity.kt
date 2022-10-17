@@ -2,15 +2,10 @@ package com.example.fooddeliveryapp.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fooddeliveryapp.databinding.ActivityFavoriteBinding
-import com.example.fooddeliveryapp.databinding.ActivityMealsBinding
 import com.example.fooddeliveryapp.model.local.AppDatabase
-import com.example.fooddeliveryapp.model.local.CartDao
-import com.example.fooddeliveryapp.model.local.FavoriteDao
-import com.example.fooddeliveryapp.viewmodel.MealsViewModel
+import com.example.fooddeliveryapp.model.local.daos.FavoriteDao
 
 class FavoriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFavoriteBinding

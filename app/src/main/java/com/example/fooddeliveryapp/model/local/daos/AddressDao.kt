@@ -1,6 +1,7 @@
-package com.example.fooddeliveryapp.model.local
+package com.example.fooddeliveryapp.model.local.daos
 
 import androidx.room.*
+import com.example.fooddeliveryapp.model.local.entities.AddressItem
 
 @Dao
 interface AddressDao {

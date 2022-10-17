@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooddeliveryapp.databinding.AddressListItemBinding
-import com.example.fooddeliveryapp.model.local.AddressDao
-import com.example.fooddeliveryapp.model.local.AddressItem
+import com.example.fooddeliveryapp.model.local.daos.AddressDao
+import com.example.fooddeliveryapp.model.local.entities.AddressItem
 import com.example.fooddeliveryapp.model.local.AppDatabase
 
-class AddressAdapter(private val categories: ArrayList<AddressItem>, context: Context) :
+class AddressAdapter(private val categories: ArrayList<AddressItem>, context: Context, private val items: String) :
     RecyclerView.Adapter<AddressAdapter.ViewHolder>() {
     private lateinit var database: AppDatabase
     private lateinit var addressDao: AddressDao
@@ -42,6 +42,8 @@ class AddressAdapter(private val categories: ArrayList<AddressItem>, context: Co
             binding.btnSelect.setOnClickListener {
                 val intent = Intent(myContext, PaymentActivity::class.java)
                 intent.putExtra(ADDRESS, item.address)
+
+                intent.putExtra("ITEMS", items)
                 ContextCompat.startActivity(myContext, intent, null)
             }
             binding.btnDelete.setOnClickListener {

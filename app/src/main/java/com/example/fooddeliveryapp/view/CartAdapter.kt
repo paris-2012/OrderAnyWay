@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.databinding.CartItemLayoutBinding
 import com.example.fooddeliveryapp.model.local.AppDatabase
-import com.example.fooddeliveryapp.model.local.CartDao
-import com.example.fooddeliveryapp.model.local.CartItem
+import com.example.fooddeliveryapp.model.local.daos.CartDao
+import com.example.fooddeliveryapp.model.local.entities.CartItem
 import com.squareup.picasso.Picasso
 
 class CartAdapter(private val notes: ArrayList<CartItem>) :

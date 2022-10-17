@@ -2,35 +2,44 @@ package com.example.fooddeliveryapp.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.fooddeliveryapp.model.remote.ApiClient
 import com.example.fooddeliveryapp.model.remote.ApiService
 import com.example.fooddeliveryapp.model.remote.response.CategoryResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(val apiService: ApiService) : ViewModel() {
 
-    private lateinit var retrofit: Retrofit
-    private lateinit var apiService: ApiService
+    val processing = MutableLiveData<Boolean>()
     val categoryLiveData = MutableLiveData<CategoryResponse>()
+    val error = MutableLiveData<String>()
 
     fun getAllCategory(){
-        retrofit = ApiClient.getRetrofit()
-        apiService = retrofit.create(ApiService::class.java)
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                processing.postValue(true)
+                val response: Response<CategoryResponse> = apiService.getCategoryInfo()
+                processing.postValue(false)
+                val result = response.body()
 
-        val categoryInfo = apiService.getCategoryInfo().subscribeOn(
-            Schedulers.io()
-        ).doOnSubscribe {
+                if(result == null) {
+                    error.postValue("Empty result from server.")
+                    return@launch
+                }
 
-        }.observeOn(
-            AndroidSchedulers.mainThread()
-        ).subscribe(
-            { response -> categoryLiveData.postValue(response)},
-            { t -> t.printStackTrace() }
-        )
+                categoryLiveData.postValue(result)
+
+            } catch (e: Exception) {
+                processing.postValue(false)
+                error.postValue(e.toString())
+            }
+        }
     }
 }

@@ -12,12 +12,13 @@ import com.example.fooddeliveryapp.model.remote.response.MealResponse
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
     @GET(END_POINT_CATEGORIES)
-    fun getCategoryInfo(): Single<CategoryResponse>
+    suspend fun getCategoryInfo(): Response<CategoryResponse>
 
     @GET(FILTER_BY_CATEGORY)
     fun searchByCategory(@Query("c") strCategory: String): Single<MealResponse>

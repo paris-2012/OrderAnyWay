@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgPayment"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_300dp"
@@ -17,6 +17,7 @@
         android:text="@string/payment_title"
         app:layout_constraintTop_toBottomOf="@+id/imgPayment"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/_10dp"
         android:textSize="@dimen/_30sp"
         android:textColor="@color/bright_orange"
         android:textStyle="bold"/>
@@ -32,12 +33,49 @@
             android:text="@string/credit"
             android:checked="true"
             android:buttonTint="@color/bright_orange"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/creditCardGroup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150dp">
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edtCardNumber"
+                android:layout_width="@dimen/_250dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/card_number"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="@dimen/_150dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/expiration_date"
+                app:layout_constraintTop_toBottomOf="@id/edtCardNumber"
+                app:layout_constraintStart_toStartOf="@id/edtCardNumber"/>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="@dimen/_50dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/cvv"
+                app:layout_constraintTop_toBottomOf="@id/edtCardNumber"
+                app:layout_constraintEnd_toEndOf="@id/edtCardNumber"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/radioBtnCash"
             android:layout_width="@dimen/_120dp"
             android:layout_height="wrap_content"
             android:text="@string/cash"
             android:buttonTint="@color/bright_orange"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cashGroup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100dp"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pay_with_cash_once_your_delivery_arrives"
+                android:textSize="@dimen/_20sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatRadioButton
             android:id="@+id/radioBtnGooglePay"
@@ -52,24 +90,25 @@
             android:layout_height="wrap_content"
             android:text="@string/scan_qr"
             android:buttonTint="@color/bright_orange"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgPaypal"
+            android:layout_width="@dimen/_150dp"
+            android:layout_height="@dimen/_150dp"
+            android:src="@drawable/img_paypal"
+            app:layout_constraintTop_toBottomOf="@+id/radioPayment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"/>
     </RadioGroup>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/bright_orange"
-        android:text="@string/confirm"
+        android:text="@string/pay"
+        android:textAllCaps="false"
         android:textSize="@dimen/_25sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"/>
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imgPaypal"
-        android:layout_width="@dimen/_150dp"
-        android:layout_height="@dimen/_150dp"
-        android:src="@drawable/img_paypal"
-        app:layout_constraintTop_toBottomOf="@+id/radioPayment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

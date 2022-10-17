@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.databinding.ActivityIndividualMealBinding
 import com.example.fooddeliveryapp.model.local.AppDatabase
-import com.example.fooddeliveryapp.model.local.CartDao
-import com.example.fooddeliveryapp.model.local.CartItem
+import com.example.fooddeliveryapp.model.local.daos.CartDao
+import com.example.fooddeliveryapp.model.local.entities.CartItem
 import com.example.fooddeliveryapp.viewmodel.MealsViewModel
 import com.squareup.picasso.Picasso
 

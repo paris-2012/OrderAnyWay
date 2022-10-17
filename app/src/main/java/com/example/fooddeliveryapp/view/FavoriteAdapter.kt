@@ -11,8 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.databinding.MealsItemBinding
-import com.example.fooddeliveryapp.model.local.FavoriteItem
-import com.example.fooddeliveryapp.model.remote.response.Meal
+import com.example.fooddeliveryapp.model.local.entities.FavoriteItem
 import com.squareup.picasso.Picasso
 
 class FavoriteAdapter(private val meals: List<FavoriteItem>, private val context: Context) :

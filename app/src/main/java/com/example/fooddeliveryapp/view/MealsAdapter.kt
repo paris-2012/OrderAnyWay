@@ -11,11 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fooddeliveryapp.R
 import com.example.fooddeliveryapp.databinding.MealsItemBinding
 import com.example.fooddeliveryapp.model.local.AppDatabase
-import com.example.fooddeliveryapp.model.local.FavoriteDao
-import com.example.fooddeliveryapp.model.local.FavoriteItem
+import com.example.fooddeliveryapp.model.local.entities.FavoriteItem
 import com.example.fooddeliveryapp.model.remote.response.Meal
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 class MealsAdapter(private val meals: List<Meal>, private val context: Context) :
     RecyclerView.Adapter<MealsAdapter.ViewHolder>() {
