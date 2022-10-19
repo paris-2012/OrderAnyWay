@@ -17,9 +17,9 @@ import retrofit2.Retrofit
 
 class HomeViewModel(val apiService: ApiService) : ViewModel() {
 
-    val processing = MutableLiveData<Boolean>()
+    private val processing = MutableLiveData<Boolean>()
     val categoryLiveData = MutableLiveData<CategoryResponse>()
-    val error = MutableLiveData<String>()
+    private val error = MutableLiveData<String>()
 
     fun getAllCategory(){
         viewModelScope.launch(Dispatchers.IO) {
