@@ -17,6 +17,7 @@ The app is a simple food delivery application in which you can create an account
 •Favorites - Stored favorite meals through RoomDb<br />
 •Profile - Stored profile information through shared preferences<br />
 •Order Tracking - Basic geographic tracking implemented using google maps<br />
+•Testing - Core features such as databases and apis are tested using a combination of junit, espresso, mockito and mockK<br />
 
 ## Screenshots
 <img src="https://user-images.githubusercontent.com/68170232/193484020-e9361c74-4b85-4c99-b323-20d489022a37.png" width="190"/> <img src="https://user-images.githubusercontent.com/68170232/193484046-1d8425ba-237d-4db2-b66f-1852d8085544.png" width="190"/>
