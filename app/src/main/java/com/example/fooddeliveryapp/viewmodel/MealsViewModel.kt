@@ -36,7 +36,15 @@ class MealsViewModel : ViewModel() {
             { t -> t.printStackTrace() }
         )
     }
-
+    fun findPrice(dish: String): Int{
+        val dishLower = dish.lowercase()
+        var price = 0
+        for (i in 0..4) {
+            price += dishLower[i].toInt() - 97
+        }
+        price %= 20
+        return price
+    }
     fun getAllMealsByName(strName: String){
         retrofit = ApiClient.getRetrofit()
         apiService = retrofit.create(ApiService::class.java)

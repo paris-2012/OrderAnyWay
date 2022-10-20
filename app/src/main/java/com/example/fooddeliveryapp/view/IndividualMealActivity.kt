@@ -31,7 +31,7 @@ class IndividualMealActivity : AppCompatActivity() {
         mealsViewModel.getMealInfo(intent.getStringExtra("meal_id")?:"")
         mealsViewModel.mealsLiveData.observe(this) {
             binding.txtTitle.text = it.meals[0].strMeal
-            val price = kotlin.math.abs(findPrice(it.meals[0].strMeal))
+            val price = kotlin.math.abs(mealsViewModel.findPrice(it.meals[0].strMeal))
             val note = CartItem(it.meals[0].idMeal.toLong(),  it.meals[0].strMeal, price.toString(), it.meals[0].strMealThumb, quantity)
             binding.txtPrice.text = "$${price.toString()}"
             Picasso.get()
@@ -64,13 +64,4 @@ class IndividualMealActivity : AppCompatActivity() {
         }
     }
 
-    private fun findPrice(dish: String): Int{
-        val dishLower = dish.lowercase()
-        var price = 0
-        for (i in 0..4) {
-            price += dishLower[i].toInt() - 97
-        }
-        price %= 20
-        return price
-    }
 }
