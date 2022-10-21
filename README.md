@@ -9,7 +9,7 @@ The app is a simple food delivery application in which you can create an account
 ## Features
 
 •Registration - Create an account through Firebase<br />
-•Login - Login to account through Firebase or login as a guest<br />
+•Login - Login to account through Firebase or login as a guest, if logged in previously, credentials are saved using shared preferences<br />
 •Category View - Gets categories through API request and displays categories of products in a recycler view<br />
 •Product View - Gets meal information through API request<br />
 •Shopping Cart - Adds meals to cart using a local database managed by RoomDb<br />
